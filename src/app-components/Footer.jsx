@@ -13,7 +13,7 @@ export function Footer() {
           />
           <div className="flex flex-col items-center gap-2 md:flex-1 md:items-start">
             <p className="text-center text-xs font-bold leading-tight tracking-wide text-navy dark:text-white md:text-left md:text-sm lg:text-base xl:text-lg">
-              © 2024 CMA CGM GROUP. ALL RIGHTS RESERVED.
+              © 2025 CMA CGM GROUP. ALL RIGHTS RESERVED.
             </p>
             <p className="text-center text-xs leading-tight text-gray-600 dark:text-gray-300 md:text-left">
               Leading the future of global shipping and logistics
