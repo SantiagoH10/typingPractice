@@ -1,0 +1,11 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
+  "workbench.editor.showTabs": "multiple",
+  "editor.renderWhitespace": "boundary"
+}
