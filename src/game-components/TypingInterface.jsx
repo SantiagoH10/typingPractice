@@ -1,9 +1,12 @@
 import { useGenerateContent } from '../hooks/useGenerateContent'
+import { useSettings } from '../hooks/useSettings'
 import { useTypingInterface } from '../hooks/useTypingInterface'
 
 export function TypingInterface() {
-  const { playerPos, preferMiddleDot } = useTypingInterface()
+  const { playerPos } = useTypingInterface()
   const { typeString } = useGenerateContent()
+  const preferMiddleDot = true
+  //const { preferMiddleDot } = useSettings()
 
   const renderWordAwareText = () => {
     const words = typeString.split(' ')

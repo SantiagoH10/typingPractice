@@ -1,4 +1,10 @@
-import { Type, FileText, MessageSquareQuote, Code2 } from 'lucide-react'
+import {
+  Type,
+  FileText,
+  MessageSquareQuote,
+  Code2,
+  FileCode,
+} from 'lucide-react'
 
 export const TYPING_MODES = {
   words: {
@@ -87,11 +93,30 @@ export const TYPING_MODES = {
     },
   },
 
+  code: {
+    id: 'code',
+    name: 'Code',
+    description: '',
+    icon: Code2,
+    options: {
+      language: {
+        type: 'select',
+        label: 'Programming Language',
+        default: 'js',
+        choices: [
+          { value: 'js', label: 'JavaScript' },
+          { value: 'py', label: 'Python' },
+          { value: 'regex', label: 'Regex' },
+        ],
+      },
+    },
+  },
+
   namingConventions: {
     id: 'namingConventions',
-    name: 'Naming',
+    name: 'Naming Conventions',
     description: 'Practice programming naming patterns',
-    icon: Code2,
+    icon: FileCode,
     options: {
       wordsPerLesson: {
         type: 'select',
