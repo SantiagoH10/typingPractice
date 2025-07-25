@@ -4,7 +4,7 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: { 'ubuntu-mono': ['"Ubuntu Mono"', 'monospace'] },
       colors: {
         navy: '#0D173F',
         ccred: '#FF0000',

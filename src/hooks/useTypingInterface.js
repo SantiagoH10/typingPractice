@@ -5,6 +5,7 @@ export function useTypingInterface() {
   const { typeString } = useGenerateContent()
   const [status, setStatus] = useState('')
   const [playerPos, setPlayerPos] = useState(0)
+  const [preferMiddleDot, setPreferMiddleDot] = useState(true)
 
   const startGame = () => {
     setPlayerPos(0)
@@ -38,5 +39,6 @@ export function useTypingInterface() {
 
   return {
     playerPos,
+    preferMiddleDot
   }
 }
