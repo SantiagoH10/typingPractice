@@ -23,7 +23,7 @@ export function TypingInterface() {
               >
                 {char}
                 {currentIndex === playerPos && (
-                  <div className="pointer-events-none absolute left-[42%] h-0.5 w-2.5 rounded-full -translate-x-[42%] bg-navy transition-all duration-200 ease-out top-full mt-0.5" />
+                  <div className="pointer-events-none absolute left-[42%] top-full mt-0.5 h-0.5 w-2.5 -translate-x-[42%] rounded-full bg-navy transition-all duration-200 ease-out" />
                 )}
               </span>
             )
@@ -40,11 +40,13 @@ export function TypingInterface() {
             key={`space-${wordIndex}`}
             className={`relative ${spaceIndex > playerPos - 1 ? 'opacity-100' : 'opacity-70'}`}
           >
-            <span className='text-gray-500 text-lg'>{preferMiddleDot ? '·' : ' '}</span>
+            <span className="text-lg text-gray-500">
+              {preferMiddleDot ? '·' : ' '}
+            </span>
             {spaceIndex === playerPos && (
-              <div className="pointer-events-none absolute left-[42%] h-0.5 w-2.5 rounded-full -translate-x-[42%] bg-navy transition-all duration-200 ease-out top-full mt-0.5" />
+              <div className="pointer-events-none absolute left-[42%] top-full mt-0.5 h-0.5 w-2.5 -translate-x-[42%] rounded-full bg-navy transition-all duration-200 ease-out" />
             )}
-          </span>
+          </span>,
         )
       }
     })

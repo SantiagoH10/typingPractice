@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useGenerateContent } from './useGenerateContent'
+import { useSettings } from './useSettings'
 
 export function useTypingInterface() {
   const { typeString } = useGenerateContent()
+  const { preferMiddleDot } = useSettings()
   const [status, setStatus] = useState('')
   const [playerPos, setPlayerPos] = useState(0)
-  const [preferMiddleDot, setPreferMiddleDot] = useState(true)
 
   const startGame = () => {
     setPlayerPos(0)
@@ -39,6 +40,6 @@ export function useTypingInterface() {
 
   return {
     playerPos,
-    preferMiddleDot
+    preferMiddleDot,
   }
 }
