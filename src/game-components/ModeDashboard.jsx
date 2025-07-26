@@ -1,5 +1,5 @@
 import { TYPING_MODES, getDefaultOptions } from '../config/typingModes'
-import { useSettings } from '../hooks/useSettings'
+import { useSettings } from '../hooks/useSettings.jsx'
 
 function GlassmorphismContainer({ children }) {
   return (
@@ -35,18 +35,19 @@ export function ModeDashboard() {
           {Object.values(TYPING_MODES).map(m => {
             const IconComponent = m.icon
             return (
-              <>
-                <ModeCard
-                  onClick={() => changeMode(m.id)}
-                  key={m.id}
-                  isCurrentMode={m.id === mode}
-                >
-                  <IconComponent className="size-7 md:size-8" />
-                  <span className="text-wrap text-center text-xs font-medium leading-tight md:text-sm">
-                    {m.name}
-                  </span>
-                </ModeCard>
-              </>
+              <ModeCard
+                onClick={e => {
+                  changeMode(m.id)
+                  e.target.blur()
+                }}
+                key={m.id}
+                isCurrentMode={m.id === mode}
+              >
+                <IconComponent className="size-7 md:size-8" />
+                <span className="text-wrap text-center text-xs font-medium leading-tight md:text-sm">
+                  {m.name}
+                </span>
+              </ModeCard>
             )
           })}
         </div>

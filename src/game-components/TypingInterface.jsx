@@ -1,10 +1,7 @@
-import { useGenerateContent } from '../hooks/useGenerateContent'
-import { useSettings } from '../hooks/useSettings'
-import { useTypingInterface } from '../hooks/useTypingInterface'
+import { useTypingInterface } from '../hooks/useTypingInterface.js'
 
 export function TypingInterface() {
-  const { playerPos } = useTypingInterface()
-  const { typeString } = useGenerateContent()
+  const { playerPos, typeString } = useTypingInterface()
   const preferMiddleDot = true
   //const { preferMiddleDot } = useSettings()
 
@@ -59,7 +56,7 @@ export function TypingInterface() {
 
   return (
     <div className="container mx-auto flex items-center justify-center bg-blue-100 p-3">
-      <div className="relative text-center font-ubuntu-mono text-xl leading-snug text-gray-600">
+      <div className="relative text-center font-ubuntu-mono text-xl md:text-3xl leading-snug text-gray-600">
         {renderWordAwareText()}
       </div>
     </div>

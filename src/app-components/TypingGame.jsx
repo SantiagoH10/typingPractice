@@ -3,7 +3,7 @@ import { TypingInterface } from '../game-components/TypingInterface'
 
 export function TypingGame() {
   return (
-    <div className="container mx-auto flex flex-col">
+    <div className="container mx-auto flex flex-1 flex-col">
       <ModeDashboard />
       <TypingInterface />
     </div>

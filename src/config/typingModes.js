@@ -16,7 +16,7 @@ export const TYPING_MODES = {
       wordsPerLesson: {
         type: 'select',
         label: 'Words per Lesson',
-        default: 50,
+        default: 15,
         choices: [
           { value: 25, label: '25 words' },
           { value: 50, label: '50 words' },
@@ -32,6 +32,7 @@ export const TYPING_MODES = {
           { value: 'random', label: 'Random Words' },
           { value: 'animals', label: 'Animals' },
           { value: 'plants', label: 'Plants' },
+          { value: 'common', label: 'Common Words' },
         ],
       },
       capitalLetter: {
