@@ -68,7 +68,10 @@ export const TYPING_MODES = {
         type: 'select',
         label: 'Article Source',
         default: 'wikipedia',
-        choices: [{ value: 'wikipedia', label: 'Wikipedia' }],
+        choices: [
+          { value: 'wikipedia', label: 'Wikipedia' },
+          { value: 'loremipsum', label: 'Lorem Ipsum' },
+        ],
       },
     },
   },

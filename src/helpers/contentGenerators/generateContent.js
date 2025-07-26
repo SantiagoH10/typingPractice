@@ -1,11 +1,16 @@
 import { generateWords } from './generateWords.js'
+import { generateArticle } from './generateArticle.js'
+import { generateQuotes } from './generateQuotes.js'
 
-const dummyLorem =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida mi turpis, eget varius arcu auctor ac. Donec iaculis ac nisi a dictum. Duis viverra eget urna id vulputate. Donec suscipit placerat varius.'
+const dummyLorem = {
+  title: 'Error Fallback',
+  typeString:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida mi turpis, eget varius arcu auctor ac. Donec iaculis ac nisi a dictum. Duis viverra eget urna id vulputate. Donec suscipit placerat varius.',
+}
 
 export async function generateContent(mode, options = {}) {
   try {
-    let newContent = ''
+    let newContent = {}
 
     switch (mode) {
       case 'words':
@@ -17,24 +22,34 @@ export async function generateContent(mode, options = {}) {
         break
 
       case 'articles':
-        newContent = 'This is the article content'
+        newContent = await generateArticle(options.source)
         break
 
       case 'quotes':
-        newContent = 'This is the quotes content'
+        newContent = await generateQuotes()
         break
 
       case 'code':
-        newContent = 'This is the code content'
+        newContent = {
+          title: 'Code',
+          typeString: 'This is the code content',
+        }
         break
 
       case 'namingConventions':
-        newContent = 'This is the naming conventions content'
+        newContent = {
+          title: 'Naming Convention',
+          typeString: 'This is the naming conventions content',
+        }
         break
 
       default:
-        newContent = 'Default content of the switch statement'
+        newContent = {
+          title: 'Default',
+          typeString: 'Default content of the switch statement',
+        }
     }
+    console.log(newContent)
     return newContent
   } catch (e) {
     console.error(e)

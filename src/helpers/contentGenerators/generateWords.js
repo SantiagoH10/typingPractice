@@ -15,11 +15,14 @@ export async function generateWords(
     const docRef = doc(db, 'wordSets', topicId)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      return processWordArray(
-        docSnap.data().words,
-        wordsPerLesson,
-        capitalLetter,
-      )
+      return {
+        title: docSnap.data().name,
+        typeString: processWordArray(
+          docSnap.data().words,
+          wordsPerLesson,
+          capitalLetter,
+        ),
+      }
     } else {
       console.warn(`Word set "${topicId}" not found`)
       return null

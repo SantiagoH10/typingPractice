@@ -1,9 +1,8 @@
 import ccLogo from '../assets/cma.png'
-import { SettingsIcon } from '../game-components/SettingsIcon'
 
 export function MySociabble() {
   return (
-    <header className="relative bg-gray-300 shadow-lg dark:bg-navy">
+    <header className="bg-gray-300 shadow-lg dark:bg-navy">
       <div className="container mx-auto px-2 py-4">
         <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
           <img
@@ -15,7 +14,6 @@ export function MySociabble() {
             WE IMAGINE BETTER WAYS TO SERVE A WORLD IN MOTION
           </p>
         </div>
-        <SettingsIcon />
       </div>
     </header>
   )

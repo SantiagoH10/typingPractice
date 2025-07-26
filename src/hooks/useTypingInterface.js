@@ -3,7 +3,7 @@ import { useSettings } from './useSettings.jsx'
 import { generateContent } from '../helpers/contentGenerators/generateContent.js'
 
 export function useTypingInterface() {
-  const [typeString, setTypeString] = useState('')
+  const [content, setContent] = useState({ title: '', typeString: '' })
   const { preferMiddleDot, mode, options } = useSettings()
   const [status, setStatus] = useState('')
   const [playerPos, setPlayerPos] = useState(0)
@@ -13,7 +13,7 @@ export function useTypingInterface() {
     setPlayerPos(0)
     try {
       let newContent = await generateContent(mode, options)
-      setTypeString(newContent)
+      setContent(newContent)
     } catch (e) {
       console.error('Error fetching content', e)
     }
@@ -25,9 +25,8 @@ export function useTypingInterface() {
         event.preventDefault()
       }
 
-      if (event.key === typeString[playerPos]) {
+      if (event.key === content.typeString[playerPos]) {
         setPlayerPos(pos => pos + 1)
-        console.log(playerPos)
         return
       }
     }
@@ -37,14 +36,16 @@ export function useTypingInterface() {
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
     }
-  }, [playerPos, typeString])
+  }, [playerPos, content])
 
   useEffect(() => {
-    startGame()
+    if (mode) {
+      startGame()
+    }
   }, [mode])
 
   useEffect(() => {
-    if (playerPos === typeString.length) {
+    if (playerPos > 0 && playerPos === content.typeString.length) {
       startGame()
     }
   }, [playerPos])
@@ -52,7 +53,7 @@ export function useTypingInterface() {
   return {
     playerPos,
     preferMiddleDot,
-    typeString,
+    content,
     status,
   }
 }

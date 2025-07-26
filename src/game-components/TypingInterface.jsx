@@ -1,12 +1,12 @@
 import { useTypingInterface } from '../hooks/useTypingInterface.js'
 
 export function TypingInterface() {
-  const { playerPos, typeString } = useTypingInterface()
+  const { playerPos, content } = useTypingInterface()
   const preferMiddleDot = true
   //const { preferMiddleDot } = useSettings()
 
   const renderWordAwareText = () => {
-    const words = typeString.split(' ')
+    const words = content.typeString.split(' ')
     const elements = []
     let charIndex = 0
 
@@ -18,7 +18,7 @@ export function TypingInterface() {
             const currentIndex = charIndex++
             return (
               <span
-                key={`${typeString.length}-${currentIndex}`}
+                key={`${content.typeString.length}-${currentIndex}`}
                 className={`relative ${currentIndex > playerPos - 1 ? 'opacity-100' : 'opacity-70'}`}
               >
                 {char}
@@ -40,7 +40,7 @@ export function TypingInterface() {
             key={`space-${wordIndex}`}
             className={`relative ${spaceIndex > playerPos - 1 ? 'opacity-100' : 'opacity-70'}`}
           >
-            <span className="text-lg text-gray-500">
+            <span className="text-lg text-gray-500 md:text-2xl">
               {preferMiddleDot ? '·' : ' '}
             </span>
             {spaceIndex === playerPos && (
@@ -55,8 +55,11 @@ export function TypingInterface() {
   }
 
   return (
-    <div className="container mx-auto flex items-center justify-center bg-blue-100 p-3">
-      <div className="relative text-center font-ubuntu-mono text-xl md:text-3xl leading-snug text-gray-600">
+    <div className="container mx-auto flex flex-col items-center justify-center gap-2 bg-blue-100 p-3">
+      <p className="rounded-full bg-blue-200 p-2 px-3 font-semibold text-navy shadow-sm md:text-xl">
+        {content.title}
+      </p>
+      <div className="relative text-center font-ubuntu-mono text-xl leading-snug text-gray-600 md:text-3xl">
         {renderWordAwareText()}
       </div>
     </div>

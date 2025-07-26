@@ -1,0 +1,23 @@
+{
+  "id": "javascript",
+  "name": "Vanilla JS",
+  "description": "Vanilla JavaScript code patterns",
+  "category": "code",
+  "patterns": [
+    "const result = items?.filter(x => x.active).map(({id, name, price = 0}) => ({...x, total: price * 1.2})) ?? [];",
+    "const user = users.find(u => u.id === targetId) || { name: 'Unknown', role: guest ? 'visitor' : 'member' };",
+    "const formatted = data.reduce((acc, {key, value}) => ({...acc, [key]: Array.isArray(value) ? value.join(', ') : value}), {});",
+    "const validate = (input) => input?.trim() ? input.length > 3 ? 'valid' : 'too_short' : 'empty';",
+    "const chunks = arr.reduce((acc, item, i) => (i % size === 0 ? acc.push([item]) : acc[acc.length - 1].push(item), acc), []);",
+    "const api = async (url, options = {}) => (await fetch(url, {headers: {'Content-Type': 'application/json'}, ...options})).json();",
+    "const debounced = ((fn, ms) => { let timeout; return (...args) => (clearTimeout(timeout), timeout = setTimeout(() => fn(...args), ms)); })(callback, 300);",
+    "const proxy = new Proxy(obj, {get: (target, prop) => prop in target ? target[prop] : `Property '${prop}' not found`});",
+    "const sorted = items.sort((a, b) => a.priority !== b.priority ? b.priority - a.priority : a.name.localeCompare(b.name));",
+    "const memoize = (fn) => { const cache = new Map(); return (...args) => cache.has(key = JSON.stringify(args)) ? cache.get(key) : cache.set(key, fn(...args)).get(key); };",
+    "const state = Object.fromEntries(Object.entries(initial).map(([k, v]) => [k, typeof v === 'object' ? {...v} : v]));",
+    "const flatten = (arr) => arr.reduce((flat, item) => flat.concat(Array.isArray(item) ? flatten(item) : item), []);",
+    "const pipeline = (...fns) => (value) => fns.reduce((acc, fn) => fn(acc), value);",
+    "const timeout = (promise, ms) => Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms))]);",
+    "const grouped = data.reduce((groups, item) => ({...groups, [item.category]: [...(groups[item.category] || []), item]}), {});"
+  ]
+}
